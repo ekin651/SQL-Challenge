@@ -5,7 +5,7 @@
 While performing a quick QAQC check on an old employee database before migrating to a new database, several suspicious values appeared. In this project, a further investigation was conducted on the entire database consisting of 6 different CSVs to reveal any data integrity issues.
 
 
-**2. Languages, Tools & Techniques **
+**2. Languages, Tools & Techniques**
 
 Languages:
 Python 3 | SQL | Markdown
@@ -19,7 +19,7 @@ Operating System:
 Windows 10 Pro v1909
 
 
-**3. Table of Contents
+**3. Table of Contents**
 
 EmployeeSQL: CSV data files of old employee database.
 Images: pictures of Entity Relationship Diagram & Readme.
@@ -32,7 +32,7 @@ Query-Tool.sql: query data in PostgreSQL.
 PandasSQL.ipynb : Jupyter Notebook utilizing SQLAlchemy to connect and query data from PostgreSQL into Pandas DataFrame, perform data analysis and make visualizations.
 
 
-**4. Process Overview
+**4. Process Overview**
 
 4.1. Create Relational Diagram and Schema Codes
 Access Quick Database Diagram.
@@ -49,7 +49,7 @@ Start the Jupyter Notebook.
 Connect to PostgreSQL database and load all desired data into Pandas DF.
 Utilize MatPlotLib to perform audit on employee salaries.
 
-**5. Investigation Finding Summary
+**5. Investigation Finding Summary**
 
 After performing inspection, analysis and visualization on "salaries" table, a lot of illogical data was discovered:
 
@@ -58,7 +58,7 @@ Senior Engineers make even less than Assistant Engineers and Engineers.
 Employee ID # 499942's name is "April Foolsday"!
 Thus, this database doesn't seem to be legitimate & reliable. Could be mock file to test DB Admin!
 
-**6. How to Use
+**6. How to Use**
 
 Source codes to complete this project are all uploaded to this repository.
 
