@@ -1,83 +1,62 @@
-# Employee Database: A Mystery in Two Parts
+Employee SQL Database Investigation
+1. Background
+While performing a quick QAQC check on an old employee database before migrating to a new database, several suspicious values appeared. In this project, a further investigation was conducted on the entire database consisting of 6 different CSVs to reveal any data integrity issues.
 
 
-## Background
+2. Languages, Tools & Techniques
+Languages:
+Python 3 | SQL | Markdown
+Python Libraries/ Modules:
+SQLAlchemy | Pandas | MatPlotLib
+Database:
+PostgresSQL. Click here to download.
+Software/ Applications:
+Jupyter Notebook | Visual Studio Code | Quick Database Diagrams (QDBD)
+Operating System:
+Windows 10 Pro v1909
+3. Table of Contents
+EmployeeSQL: CSV data files of old employee database.
+Images: pictures of Entity Relationship Diagram & Readme.
+Entity_Relationship_Diagram (ERD).png : picture of all tables in this SQL DB with their relationships.
+readmePic.png: picture embedded in the readme file.
+Schema-Query:
+QuickDB.sql: SQL codes to create relational diagram on QuickDBD website.
+PostgreSQL-Schema.sql: schema file to create tables in PostgreSQL.
+Query-Tool.sql: query data in PostgreSQL.
+PandasSQL.ipynb : Jupyter Notebook utilizing SQLAlchemy to connect and query data from PostgreSQL into Pandas DataFrame, perform data analysis and make visualizations.
+4. Process Overview
+4.1. Create Relational Diagram and Schema Codes
+Access Quick Database Diagram.
+Map out Entity Relation Diagram and create relationships between tables with primary and foreign keys.
+Export schema in PostgreSQL format.
+4.2. Load & Query Data in PostgreSQL
+Start the program, import and run the downloaded schema file from QDBD.
+Import CSV files into the corresponding newly created SQL tables.
+Inside EmployeeSQL, there is a file called autoload_tbl.sql. This file helps to automate the CSV loading process as with a large database, it took a lot of time to do manual loading.
+To use the file, start CMD and connect to PostgreSQL with username and password, then execute this file. All CSVs will be autoloaded.
+Perform query on different categories including: names, employee number, last name, first name, department, salaries to verify data integrity and check for any suspicious values.
+4.3. SQLAlchemy & Pandas
+Start the Jupyter Notebook.
+Connect to PostgreSQL database and load all desired data into Pandas DF.
+Utilize MatPlotLib to perform audit on employee salaries.
+5. Investigation Finding Summary
+After performing inspection, analysis and visualization on "salaries" table, a lot of illogical data was discovered:
 
-It is a beautiful spring day, and it is two weeks since you have been hired as a new data engineer at Pewlett Hackard. Your first major task is a research project on employees of the corporation from the 1980s and 1990s. All that remain of the database of employees from that period are six CSV files.
+Staff & Senior Staff earn more money than Manager & Technique Leaders.
+Senior Engineers make even less than Assistant Engineers and Engineers.
+Employee ID # 499942's name is "April Foolsday"!
+Thus, this database doesn't seem to be legitimate & reliable. Could be mock file to test DB Admin!
 
-In this assignment, you will design the tables to hold data in the CSVs, import the CSVs into a SQL database, and answer questions about the data. In other words, you will perform:
+6. How to Use
+Source codes to complete this project are all uploaded to this repository.
 
-1. Data Modeling
-
-2. Data Engineering
-
-3. Data Analysis
-
-### Before You Begin
-
-1. Create a new repository for this project called `sql-challenge`. **Do not add this work to an existing repository**.
-
-2. Clone the new repository to your computer.
-
-3. Inside your local git repository, create a directory for the SQL challenge. Use a folder name to correspond to the challenge: **EmployeeSQL**.
-
-4. Add your files to this folder.
-
-5. Push the above changes to GitHub.
-
-## Instructions
-
-#### Data Modeling
-
-Inspect the CSVs and sketch out an ERD of the tables. Feel free to use a tool like [http://www.quickdatabasediagrams.com](http://www.quickdatabasediagrams.com).
-
-#### Data Engineering
-
-* Use the information you have to create a table schema for each of the six CSV files. Remember to specify data types, primary keys, foreign keys, and other constraints.
-
-* Import each CSV file into the corresponding SQL table.
-
-#### Data Analysis
-
-Once you have a complete database, do the following:
-
-1. List the following details of each employee: employee number, last name, first name, gender, and salary.
-
-2. List employees who were hired in 1986.
-
-3. List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name, and start and end employment dates.
-
-4. List the department of each employee with the following information: employee number, last name, first name, and department name.
-
-5. List all employees whose first name is "Hercules" and last names begin with "B."
-
-6. List all employees in the Sales department, including their employee number, last name, first name, and department name.
-
-7. List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
-
-8. In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
-
-## Bonus (Optional)
-
-As you examine the data, you are overcome with a creeping suspicion that the dataset is fake. You surmise that your boss handed you spurious data in order to test the data engineering skills of a new employee. To confirm your hunch, you decide to take the following steps to generate a visualization of the data, with which you will confront your boss:
-
-1. Import the SQL database into Pandas. (Yes, you could read the CSVs directly in Pandas, but you are, after all, trying to prove your technical mettle.) This step may require some research. Feel free to use the code below to get started. Be sure to make any necessary modifications for your username, password, host, port, and database name:
-
-   ```sql
-   from sqlalchemy import create_engine
-   engine = create_engine('postgresql://localhost:5432/<your_db_name>')
-   connection = engine.connect()
-   ```
-
-* Consult [SQLAlchemy documentation](https://docs.sqlalchemy.org/en/latest/core/engines.html#postgresql) for more information.
-
-* If using a password, do not upload your password to your GitHub repository. See [https://www.youtube.com/watch?v=2uaTPmNvH0I](https://www.youtube.com/watch?v=2uaTPmNvH0I) and [https://martin-thoma.com/configuration-files-in-python/](https://martin-thoma.com/configuration-files-in-python/) for more information.
-
-2. Create a histogram to visualize the most common salary ranges for employees.
-
-3. Create a bar chart of average salary by title.
-
-## Epilogue
-
-Evidence in hand, you march into your boss's office and present the visualization. With a sly grin, your boss thanks you for your work. On your way out of the office, you hear the words, "Search your ID number." You look down at your badge to see that your employee ID number is 499942.
-
+Recommend to start fresh with development environment. New environment can be created with either conda or python methods.
+Install all modules that are listed in section 2.
+File name "general_keys.py" was not uploaded due to security reasons as it contains user password to the DB.In order for the "PandasSQL.ipynb" to work properly, create a file name: "general_keys.py" in the same folder with this file. Edit the content with following codes:
+sql_key="<user-password>"
+db_key="<dabase-name>"
+For example, if the password is myPassword and database name is myDBname:
+sql_key = "myPassword"
+db_key = "myDBname"
+Notice the double-quote " ", have to be in there.
+If start from scratch, follow the general steps as listed in section 4 - Process Overview.
