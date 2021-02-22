@@ -1,9 +1,9 @@
-Employee SQL Database Investigation
+**Employee SQL Database Investigation
 1. Background
 While performing a quick QAQC check on an old employee database before migrating to a new database, several suspicious values appeared. In this project, a further investigation was conducted on the entire database consisting of 6 different CSVs to reveal any data integrity issues.
 
 
-2. Languages, Tools & Techniques
+** 2. Languages, Tools & Techniques *
 Languages:
 Python 3 | SQL | Markdown
 Python Libraries/ Modules:
